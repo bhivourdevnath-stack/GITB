@@ -4,8 +4,12 @@
 
 @media (max-width: 760px) {
     body { font-size: 13px; }
-    .site-header { height: 58px; padding: 0 16px; }
-    .main-nav { gap: 14px; }
+    .site-header { height: 64px; padding: 0 16px; }
+    .brand-mark { font-size: 24px; }
+    .brand-copy strong { font-size: 20px; }
+    .brand-copy small { font-size: 7px; }
+    .main-nav { gap: 5px; font-size: 12px; }
+    .main-nav a { min-height: 36px; padding: 0 9px; }
     .nav-search span { display: none; }
     .page-shell, .directory-page { width: calc(100% - 32px); }
     .home-page, .directory-page { padding-top: 28px; }
@@ -27,19 +31,26 @@
 }
 
 @media (max-width: 420px) {
-    .brand-mark { display: none; }
-    .main-nav { gap: 11px; font-size: 11px; }
+    .brand-mark { font-size: 21px; }
+    .brand-copy small { display: none; }
+    .main-nav { gap: 3px; font-size: 11px; }
+    .main-nav a { padding-inline: 7px; }
     .home-intro > p { line-height: 1.55; }
     .category-nav { grid-template-columns: 1fr 1fr; }
     .category-item { padding-inline: 7px; }
     .type-tab { min-width: 44px; }
     .hero-section { padding-top: 38px; }
     .hero-section h1 { font-size: 40px; }
+    .hero-title-pixel { gap: 10px; }
+    .hero-title-find { min-height: 40px; }
+    .hero-title-find .pixel-controller { width: 46px; height: 30px; }
     .game-grid, .directory-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 540px) {
     .hero-search { grid-template-columns: 1fr; }
     .hero-search button { height: 38px; margin-top: 0; }
+    .directory-search { height: auto; grid-template-columns: 1fr; }
+    .directory-search button { height: 38px; margin-top: 0; }
     .game-grid, .directory-card-grid { grid-template-columns: 1fr; }
 }

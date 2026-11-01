@@ -1,12 +1,12 @@
 name: Report a broken link
-description: Report a PlayLink catalog URL that does not work
+description: Report a GITB catalog URL that does not work
 title: "Broken link: "
 labels: [broken link]
 body:
   - type: markdown
     attributes:
       value: |
-        Please include the resource name and the URL shown in PlayLink. Do not submit credentials or personal information.
+        Please include the resource name and the URL shown in GITB. Do not submit credentials or personal information.
   - type: input
     id: resource
     attributes:

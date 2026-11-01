@@ -17,7 +17,7 @@ def test_home_page():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert b"PlayLink" in response.data
+    assert b"GITB" in response.data
     assert b"Agar.io" in response.data
 
 
@@ -29,12 +29,32 @@ def test_directory_page():
     assert b"Find your next browser game" in response.data
 
 
+def test_directory_sections_have_show_all_links():
+    response = app.test_client().get("/directory")
+
+    assert response.status_code == 200
+    assert b"Show all" in response.data
+    assert b"/directory?category=action&amp;" in response.data
+
+
+def test_action_category_pagination():
+    client = app.test_client()
+
+    first_page = client.get("/directory?category=action&page=1")
+    second_page = client.get("/directory?category=action&page=2")
+
+    assert first_page.status_code == 200
+    assert second_page.status_code == 200
+    assert b'aria-label="Directory pages"' in second_page.data
+    assert b'aria-current="page"' in second_page.data
+
+
 def test_contribute_page():
     client = app.test_client()
     response = client.get("/contribute")
 
     assert response.status_code == 200
-    assert b"Help improve PlayLink" in response.data
+    assert b"Help improve GITB" in response.data
     assert b"Valid URL" in response.data
     assert b"No duplicates" in response.data
     assert b"Submit a game link" in response.data

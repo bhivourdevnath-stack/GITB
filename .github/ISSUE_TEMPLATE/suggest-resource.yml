@@ -1,12 +1,12 @@
 name: Suggest a resource
-description: Suggest a browser game or website for the PlayLink catalog
+description: Suggest a browser game or website for the GITB catalog
 title: "Resource suggestion: "
 labels: [resource suggestion]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve PlayLink. Please search the directory and existing issues before submitting.
+        Thanks for helping improve GITB. Please search the directory and existing issues before submitting.
   - type: input
     id: name
     attributes:
@@ -44,7 +44,7 @@ body:
     attributes:
       label: Short description
       description: Describe what the resource does in one or two neutral sentences.
-      placeholder: Briefly explain the game or website and why it belongs in PlayLink.
+      placeholder: Briefly explain the game or website and why it belongs in GITB.
     validations:
       required: true
   - type: textarea

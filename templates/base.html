@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PlayLink curated browser game directory">
-    <title>{% block title %}PlayLink{% endblock %}</title>
+    <meta name="description" content="GITB curated browser game directory — Games in the browser">
+    <title>{% block title %}GITB — Games in the browser{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
@@ -13,9 +13,12 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
     <header class="site-header">
-        <a class="brand" href="{{ url_for('index') }}" aria-label="PlayLink home">
+        <a class="brand" href="{{ url_for('index') }}" aria-label="GITB — Games in the browser home" title="Games in the browser">
             <span class="brand-mark">▣</span>
-            <span>PlayLink</span>
+            <span class="brand-copy">
+                <strong>GITB</strong>
+                <small>Games in the browser</small>
+            </span>
         </a>
         <nav class="main-nav" aria-label="Main navigation">
             <a href="{{ url_for('directory') }}" class="{% if request.endpoint == 'directory' %}active{% endif %}">Directory</a>
@@ -26,7 +29,7 @@
     </header>
     {% block content %}{% endblock %}
     <footer class="site-footer page-shell">
-        <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">▣</span><span>PlayLink</span></a>
+        <a class="brand" href="{{ url_for('index') }}" title="Games in the browser"><span class="brand-mark">▣</span><span>GITB</span></a>
         <nav aria-label="Footer navigation">
             <a href="{{ url_for('about') }}">About</a>
             <a href="{{ url_for('contribute') }}">Contribute</a>

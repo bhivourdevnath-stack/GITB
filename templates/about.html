@@ -1,9 +1,71 @@
 {% extends "base.html" %}
-{% block title %}About — PlayLink{% endblock %}
+{% block title %}About — GITB{% endblock %}
 {% block content %}
 <main class="simple-page page-shell">
     <p class="eyebrow">About the project</p>
     <h1>Discover browser games.</h1>
-    <p>PlayLink is a curated directory of browser games and game websites. PlayLink does not host games or copy third-party content.</p>
+    <p class="about-intro">GITB — Games in the browser — is a curated directory that helps people find individual browser games and websites that offer browser games. It is designed to make discovery simple, fast, and useful without turning into a gaming platform.</p>
+
+    <section class="contribution-section" aria-labelledby="what-we-do-heading">
+        <h2 id="what-we-do-heading">What GITB does</h2>
+        <p>Browse games by category, filter between games and websites, and search names, descriptions, categories, domains, and tags. GITB links directly to third-party game providers, so visitors can leave the directory and play on the original website.</p>
+        <p>GITB does not host game files, embed game players, require accounts, or collect player favorites. The catalog is stored in public JSON files and maintained through GitHub.</p>
+    </section>
+
+    <section class="contribution-section" aria-labelledby="catalog-heading">
+        <h2 id="catalog-heading">How the catalog works</h2>
+        <p>Every listed resource has a stable identifier, name, public URL, resource type, category, tags, description, featured state, and curation status. The directory organizes resources using categories such as action, arcade, puzzle, strategy, racing, sports, and multiplayer.</p>
+        <p>Descriptions are kept short and factual. Resources marked as <strong>unverified</strong> have not yet been fully confirmed by a maintainer, while <strong>active</strong> resources are included in the catalog as currently intended listings.</p>
+    </section>
+
+    <section class="contribution-section" aria-labelledby="contribute-heading">
+        <h2 id="contribute-heading">How to contribute</h2>
+        <p>Anyone can help improve GITB through GitHub. You do not need to know Flask, HTML, or JSON to suggest a resource or report a broken link.</p>
+        <ol class="contribution-steps">
+            <li>Search the directory and existing GitHub issues to check for duplicates.</li>
+            <li>Open the <a href="https://github.com/bhivourdevnath-stack/GameLink/issues/new?template=suggest-resource.yml" target="_blank" rel="noopener">resource suggestion form</a>.</li>
+            <li>Provide the game or website name, canonical public URL, type, best category, and a short useful description.</li>
+            <li>Submit the issue and wait for a maintainer to review it.</li>
+        </ol>
+        <p>To report a link that is unavailable, unsafe, or no longer correct, use the <a href="https://github.com/bhivourdevnath-stack/GameLink/issues/new?template=broken-link.yml" target="_blank" rel="noopener">broken-link report form</a>.</p>
+    </section>
+
+    <section class="contribution-section" aria-labelledby="technical-heading">
+        <h2 id="technical-heading">For technical contributors</h2>
+        <p>Fork the repository, create a focused branch, and edit the catalog JSON files or other project source files. Games belong in <code>data/games.json</code>, while game-provider websites belong in <code>data/websites.json</code>. Category definitions live in <code>data/categories.json</code>.</p>
+        <ol class="contribution-steps">
+            <li>Use a stable, unique ID that does not exist in either catalog file.</li>
+            <li>Use the original or canonical HTTP or HTTPS URL.</li>
+            <li>Choose the category that best fits the resource.</li>
+            <li>Write a neutral description based on the actual resource.</li>
+            <li>Run the automated tests with <code>python -m pytest</code>.</li>
+            <li>Open a pull request and explain the change clearly.</li>
+        </ol>
+        <p>Submitting an issue does not automatically change the live directory. All additions and edits are reviewed before merging.</p>
+    </section>
+
+    <section class="contribution-section" aria-labelledby="review-heading">
+        <h2 id="review-heading">What submissions are reviewed for</h2>
+        <ul class="review-list">
+            <li><strong>Valid links:</strong> public URLs using HTTP or HTTPS and no deceptive redirects.</li>
+            <li><strong>Duplicates:</strong> the same game or website should not be submitted more than once.</li>
+            <li><strong>Category fit:</strong> the resource should belong in its selected category.</li>
+            <li><strong>Useful descriptions:</strong> summaries should be concise, accurate, and neutral.</li>
+            <li><strong>Safety:</strong> malware, credential theft, harmful downloads, scams, and deceptive pages are not appropriate.</li>
+            <li><strong>Scope:</strong> suggestions should be browser-playable games or legitimate providers of browser games.</li>
+        </ul>
+    </section>
+
+    <section class="contribution-section" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Privacy and external links</h2>
+        <p>GITB does not operate the websites linked from the directory. External sites are independent services with their own availability, privacy policies, content, accounts, cookies, and rules.</p>
+        <p>Do not submit passwords, private information, account tokens, copyrighted files, or proprietary content. Only share publicly available information about a resource.</p>
+    </section>
+
+    <section class="contribution-section" aria-labelledby="open-source-heading">
+        <h2 id="open-source-heading">Project and license</h2>
+        <p>GITB is built with Flask, HTML, CSS, and vanilla JavaScript. It uses JSON files instead of a database and keeps the project lightweight and easy to maintain.</p>
+        <p><a href="https://github.com/bhivourdevnath-stack/GameLink" target="_blank" rel="noopener">View the GITB repository on GitHub →</a></p>
+    </section>
 </main>
 {% endblock %}

@@ -1,3 +1,4 @@
+import math
 import json
 from pathlib import Path
 from urllib.parse import urlparse
@@ -85,7 +86,7 @@ def validate_catalog():
             errors.append(f"{website.get('id', '<unknown>')} should be stored in websites.json as a website")
 
     if errors:
-        raise ValueError("Invalid PlayLink catalog: " + "; ".join(errors))
+        raise ValueError("Invalid GITB catalog: " + "; ".join(errors))
     return games, websites, categories
 
 
@@ -170,11 +171,47 @@ def directory():
     for category_item in categories:
         category_resources = [item for item in filtered if item.get("category") == category_item["id"]]
         if category_resources:
-            grouped.append({
-                "id": category_item["id"],
-                "name": category_item["name"],
-                "resources": category_resources,
-            })
+            if category == "all":
+                grouped.append({
+                    "id": category_item["id"],
+                    "name": category_item["name"],
+                    "resources": category_resources[:20],
+                    "show_all": True,
+                })
+
+    page = request.args.get("page", 1, type=int)
+    if page < 1:
+        page = 1
+
+    pagination = None
+    if category != "all":
+        category_resources = [
+            item for item in filtered if item.get("category") == category
+        ]
+        page_size = 100
+        show_all = request.args.get("show_all") == "1"
+        if show_all:
+            start = 0
+            end = len(category_resources)
+        else:
+            total_pages = max(1, math.ceil(len(category_resources) / page_size))
+            page = min(page, total_pages)
+            start = (page - 1) * page_size
+            end = start + page_size
+        category_name = category_names.get(category, category)
+        grouped = [{
+            "id": category,
+            "name": category_name,
+            "resources": category_resources[start:end],
+            "show_all": False,
+        }] if category_resources else []
+        if not show_all:
+            pagination = {
+                "page": page,
+                "pages": total_pages,
+                "has_prev": page > 1,
+                "has_next": page < total_pages,
+            }
 
     return render_template(
         "directory.html",
@@ -183,6 +220,8 @@ def directory():
         query=query,
         resource_type=resource_type,
         category=category,
+        page=page,
+        pagination=pagination,
     )
 
 

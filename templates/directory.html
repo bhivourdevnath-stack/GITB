@@ -1,8 +1,8 @@
 ﻿{% extends "base.html" %}
-{% block title %}Directory — PlayLink{% endblock %}
+{% block title %}Directory — GITB{% endblock %}
 {% block content %}
 <main class="directory-page page-shell">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ url_for('index') }}">PlayLink</a><span>›</span><span>Directory</span></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ url_for('index') }}">GITB</a><span>›</span><span>Directory</span></nav>
     <section class="directory-heading">
         <h1 class="text-roll">Find your next browser game.</h1>
         <p>Curated games and game websites. No downloads to get in the way — just pick a link and play.</p>
@@ -28,10 +28,10 @@
         <section class="directory-results">
             <form class="directory-search" role="search" method="get" action="{{ url_for('directory') }}">
                 <label class="sr-only" for="directory-query">Search games and websites</label>
-                <span aria-hidden="true">⌕</span>
                 <input id="directory-query" name="q" value="{{ query }}" type="search" placeholder="Search by game, website or genre..." autocomplete="off">
                 <input type="hidden" name="category" value="{{ category }}">
                 <input type="hidden" name="type" value="{{ resource_type }}">
+                <button type="submit">Search</button>
             </form>
 
             <div class="results-toolbar">
@@ -46,9 +46,12 @@
             <div class="directory-resource-list">
                 {% for group in grouped_resources %}
                 <section class="resource-group">
-                    <h2>{{ group.name }}</h2>
+                    <div class="resource-group-heading">
+                        <h2>{{ group.name }}</h2>
+                    </div>
+                    {% for resource_row in group.resources | batch(4) %}
                     <div class="directory-card-grid">
-                        {% for resource in group.resources %}
+                        {% for resource in resource_row %}
                         <a class="directory-game-card" href="{{ resource.url }}" target="_blank" rel="noopener">
                             <span class="game-cover" aria-hidden="true">{{ resource.name[0] }}</span>
                             <span class="directory-card-copy"><strong>{{ resource.name }}</strong><small>{{ resource.description }}</small></span>
@@ -56,11 +59,36 @@
                         </a>
                         {% endfor %}
                     </div>
+                    {% endfor %}
+                    {% if group.show_all %}
+                    <div class="directory-section-show-all">
+                        <a href="{{ url_for('directory', category=group.id, q=query, type=resource_type) }}">Show all →</a>
+                    </div>
+                    {% endif %}
                 </section>
                 {% else %}
                 <p class="no-results">No matching links found.</p>
                 {% endfor %}
             </div>
+
+            {% if pagination and pagination.pages > 1 %}
+            <nav class="directory-pagination" aria-label="Directory pages">
+                {% if pagination.has_prev %}
+                <a href="{{ url_for('directory', category=category, q=query, type=resource_type, page=pagination.page - 1) }}">Previous</a>
+                {% endif %}
+                {% for page_number in range(1, pagination.pages + 1) %}
+                <a class="{% if page_number == pagination.page %}active{% endif %}" href="{{ url_for('directory', category=category, q=query, type=resource_type, page=page_number) }}" {% if page_number == pagination.page %}aria-current="page"{% endif %}>{{ page_number }}</a>
+                {% endfor %}
+                {% if pagination.has_next %}
+                <a href="{{ url_for('directory', category=category, q=query, type=resource_type, page=pagination.page + 1) }}">Next</a>
+                {% endif %}
+            </nav>
+            {% if not pagination.has_next %}
+            <div class="directory-show-all">
+                <a href="{{ url_for('directory', category=category, q=query, type=resource_type, show_all='1') }}">Show all links</a>
+            </div>
+            {% endif %}
+            {% endif %}
         </section>
     </div>
     <footer class="directory-footer">▣ Something not working? Report a broken link ↗</footer>

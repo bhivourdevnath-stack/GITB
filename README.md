@@ -1,6 +1,6 @@
-# PlayLink
+# GITB — Games in the browser
 
-PlayLink is a curated directory for discovering browser games and websites that provide browser games. It is a lightweight Flask application and does not host or embed games.
+GITB is a curated directory for discovering browser games and websites that provide browser games. It is a lightweight Flask application and does not host or embed games.
 
 ## Requirements
 
@@ -46,7 +46,7 @@ Use `game` or `website` for `type`, use a category ID defined in `data/categorie
 
 ## Contributing
 
-The contribution workflow uses GitHub Issues and pull requests on the [PlayLink repository](https://github.com/bhivourdevnath-stack/GameLink).
+The contribution workflow uses GitHub Issues and pull requests on the [GITB repository](https://github.com/bhivourdevnath-stack/GameLink).
 
 ### Suggest a resource or report a broken link
 

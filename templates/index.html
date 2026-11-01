@@ -1,11 +1,19 @@
 {% extends "base.html" %}
-{% block title %}PlayLink — Find your next browser game{% endblock %}
+{% block title %}GITB — Games in the browser{% endblock %}
 {% block content %}
 <main class="discover-page page-shell">
     <section class="hero-section">
         <p class="eyebrow">Browser game directory</p>
-        <h1 class="text-roll">Find a game </h1>
-        <h1 class="text-roll">worth playing.</h1><br>
+        <h1 class="hero-title-pixel hero-title-find">
+            <span class="text-roll">Find a game</span>
+            <svg class="pixel-controller" role="img" aria-label="Pixel game controller" viewBox="0 0 64 40">
+                <path d="M10 5h44l6 8-3 22H47l-7-10H24l-7 10H7L4 13z" />
+                <path class="controller-cutout" d="M15 16h5v-5h5v5h5v5h-5v5h-5v-5h-5zm26-1h5v5h-5zm9 8h5v5h-5z" />
+            </svg>
+        </h1>
+        <h1 class="hero-title-pixel">
+            <span class="text-roll">worth playing.</span>
+        </h1><br>
         <p>Explore curated browser games and jump straight to the original game site.</p>
         <form class="hero-search" method="get" action="{{ url_for('directory') }}" role="search">
             <label class="sr-only" for="home-search">Search games</label>
