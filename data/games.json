@@ -130,21 +130,6 @@
     "status": "unverified"
   },
   {
-    "id": "bo3-cheese-cube",
-    "name": "BO3 Cheese Cube",
-    "url": "https://cheese-cube.pages.dev",
-    "type": "game",
-    "category": "action",
-    "tags": [
-      "Zombies",
-      "FPS",
-      "Custom map"
-    ],
-    "description": "A browser-hosted Black Ops 3 Zombies custom map experience.",
-    "featured": false,
-    "status": "unverified"
-  },
-  {
     "id": "black-ops-2",
     "name": "Black Ops 2",
     "url": "https://vibeslops.luckeysystems.com",
