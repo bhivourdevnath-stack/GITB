@@ -4,7 +4,7 @@
     "name": "Poki",
     "url": "https://poki.com",
     "type": "website",
-    "category": "arcade",
+    "category": "websites",
     "tags": [
       "Game portal",
       "Mixed games"
@@ -18,7 +18,7 @@
     "name": "CrazyGames",
     "url": "https://crazygames.com",
     "type": "website",
-    "category": "arcade",
+    "category": "websites",
     "tags": [
       "Action",
       "Racing",
@@ -33,7 +33,7 @@
     "name": "itch.io HTML5 games",
     "url": "https://itch.io/games/html5",
     "type": "website",
-    "category": "arcade",
+    "category": "websites",
     "tags": [
       "Indie",
       "Browser"

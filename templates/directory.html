@@ -10,7 +10,6 @@
 
     <div class="directory-layout">
         <aside class="category-sidebar">
-            <h2>Browse games</h2>
             <nav class="category-nav" aria-label="Game categories">
                 <a class="category-item {% if category == 'all' %}active{% endif %}" href="{{ url_for('directory', q=query, type=resource_type) }}">All games</a>
                 {% for item in categories %}

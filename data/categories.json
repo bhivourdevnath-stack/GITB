@@ -1,9 +1,50 @@
 [
-  {"id":"action","name":"Action","icon":"bolt","order":1},
-  {"id":"arcade","name":"Arcade","icon":"gamepad","order":2},
-  {"id":"puzzle","name":"Puzzle","icon":"puzzle","order":3},
-  {"id":"strategy","name":"Strategy","icon":"chess","order":4},
-  {"id":"racing","name":"Racing","icon":"flag","order":5},
-  {"id":"sports","name":"Sports","icon":"ball","order":6},
-  {"id":"multiplayer","name":"Multiplayer","icon":"users","order":7}
+  {
+    "id": "action",
+    "name": "Action",
+    "icon": "bolt",
+    "order": 1
+  },
+  {
+    "id": "arcade",
+    "name": "Arcade",
+    "icon": "gamepad",
+    "order": 2
+  },
+  {
+    "id": "puzzle",
+    "name": "Puzzle",
+    "icon": "puzzle",
+    "order": 3
+  },
+  {
+    "id": "strategy",
+    "name": "Strategy",
+    "icon": "chess",
+    "order": 4
+  },
+  {
+    "id": "racing",
+    "name": "Racing",
+    "icon": "flag",
+    "order": 5
+  },
+  {
+    "id": "sports",
+    "name": "Sports",
+    "icon": "ball",
+    "order": 6
+  },
+  {
+    "id": "multiplayer",
+    "name": "Multiplayer",
+    "icon": "users",
+    "order": 7
+  },
+  {
+    "id": "websites",
+    "name": "Websites",
+    "icon": "globe",
+    "order": 8
+  }
 ]
