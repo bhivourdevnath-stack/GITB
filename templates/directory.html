@@ -33,15 +33,7 @@
                 <button type="submit">Search</button>
             </form>
 
-            <div class="results-toolbar">
-                <h2>{% if category == 'all' %}All links{% else %}{{ category | replace('-', ' ') | title }}{% endif %}</h2>
-                <div class="type-tabs" aria-label="Filter by resource type">
-                    <a class="type-tab {% if resource_type == 'all' %}active{% endif %}" href="{{ url_for('directory', q=query, category=category) }}">All</a>
-                    <a class="type-tab {% if resource_type == 'game' %}active{% endif %}" href="{{ url_for('directory', q=query, category=category, type='game') }}">Games</a>
-                    <a class="type-tab {% if resource_type == 'website' %}active{% endif %}" href="{{ url_for('directory', q=query, category=category, type='website') }}">Websites</a>
-                </div>
-            </div>
-
+           <br>
             <div class="directory-resource-list">
                 {% for group in grouped_resources %}
                 <section class="resource-group">
