@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
 DATA_DIR = Path(app.root_path) / "data"
@@ -128,6 +128,11 @@ def index():
         category_names=category_names,
         collections=collections,
     )
+
+
+@app.route("/google164e75b51e8f2f1b.html")
+def google_site_verification():
+    return send_from_directory(app.root_path, "google164e75b51e8f2f1b.html")
 
 
 @app.route("/directory")

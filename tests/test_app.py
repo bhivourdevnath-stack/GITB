@@ -21,6 +21,13 @@ def test_home_page():
     assert b"Agar.io" in response.data
 
 
+def test_google_site_verification_file_is_served_from_root():
+    response = app.test_client().get("/google164e75b51e8f2f1b.html")
+
+    assert response.status_code == 200
+    assert response.data == b"google-site-verification: google164e75b51e8f2f1b.html"
+
+
 def test_directory_page():
     client = app.test_client()
     response = client.get("/directory")
